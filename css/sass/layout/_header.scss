@@ -1,0 +1,183 @@
+.header {
+	background-color: $aquaColor;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	margin-top: -100px;
+	opacity: 0;
+	animation-name: header-fade-in;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	.container {
+		input[type="checkbox"] {
+			display: none;
+		}
+		.button {
+			display: none;
+		}
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		.logo {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			h2 {
+				color: white;
+				font-size: 30px;
+				margin-right: 15px;
+			}
+		}
+		.navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			li {
+				margin-right: 30px;
+				height: 100%;
+				position: relative;
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					width: 0;
+					height: 5px;
+					left: 0px;
+					bottom: -40px;
+					background-color: $blueColor;
+					border-radius: 50px;
+					transition: 300ms;
+				}
+				&:hover::before {
+					width: 100%;
+				}
+				a {
+					color: white;
+				}
+			}
+		}
+	}
+	@media (max-width: $maxMedium) {
+		.container {
+			.button {
+				display: block;
+			}
+			.button label {
+				display: block;
+				width: 40px;
+				height: 30px;
+				position: relative;
+				span {
+					width: 100%;
+					height: 5px;
+					background-color: white;
+					border-radius: 10px;
+					position: absolute;
+					right: 0px;
+					display: block;
+					animation-duration: 300ms;
+					animation-fill-mode: both;
+					&:first-child {
+						top: 0px;
+					}
+					&:nth-child(2) {
+						top: 50%;
+						transform: translateY(-50%);
+						width: 60%;
+						transition: 150ms;
+						transition-delay: 150ms;
+					}
+					&:last-child {
+						bottom: 0px;
+					}
+
+				}
+			}
+			.navbar {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				top: 85px;
+				background-color: white;
+				flex-direction: column;
+				box-shadow: 1px 1px 20px 0px #777;
+				border-radius: 0px 0px 40px 40px;
+				opacity: 0;
+				display: none;
+				animation-duration: 300ms;
+				animation-fill-mode: both;
+				height: fit-content;
+				li {
+					margin-right: 30px;
+					padding: 30px;
+					border-bottom: 1px solid #ccc;
+					width: 100%;
+					text-align: center;
+					height: fit-content;
+					&::before {
+						display: none;
+					}
+					a {
+						color: black;		
+					}
+				}
+			}
+			.quote {
+				display: none;
+			}
+			input[type="checkbox"]:checked ~ {
+				.button label span {
+					&:first-child {
+						animation-name: burger-icon-1;
+					}
+					&:last-child {
+						animation-name: burger-icon-2;
+					}
+					&:nth-child(2) {
+						display: none;
+					}
+				}
+				.navbar {
+					display: flex;
+					animation-name: menu;
+				}
+			}
+		}
+	}
+}
+@keyframes menu{
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		top: 77px;
+	}
+}
+@keyframes burger-icon-1 {
+	50% {
+		transform: rotate(-45deg);
+	}
+	100% {
+		transform: translateY(-50%) rotate(-45deg);
+		top: 50%;
+	}
+}
+@keyframes burger-icon-2 {
+	50% {
+		transform: rotate(45deg);
+	}
+	100% {
+		transform: translateY(50%) rotate(45deg);
+		bottom: 50%;
+	}
+}
+@keyframes header-fade-in {
+	to {
+		opacity: 1;
+	}
+}

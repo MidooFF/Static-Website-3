@@ -1,0 +1,11 @@
+.quote {
+	color: white;
+	background-color: $blueColor;
+	padding: 10px 20px;
+	border-radius: 50px;
+	transition: 300ms;
+	&:hover {
+		background-color: white;
+		color: $blueColor;
+	}
+}

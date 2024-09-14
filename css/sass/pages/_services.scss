@@ -1,0 +1,32 @@
+.services {
+	margin-top: 120px;
+	.main-title {
+		text-align: center;
+		margin-bottom: 80px;
+	}
+	.content {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 40px;
+		.box {
+			display: flex;
+			justify-content: space-between;
+			align-items: start;
+			padding: 40px;
+			background-color: #eee;
+			box-shadow: 4px 4px 15px 0px #aaa;
+			gap: 30px;
+			img {
+				margin-top: 40px;
+			}
+			.content {
+				h2 {
+					font-weight: 400;
+				}
+				p {
+					line-height: 1.6;
+				}
+			}
+		}
+	}
+}

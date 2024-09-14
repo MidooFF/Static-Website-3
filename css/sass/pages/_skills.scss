@@ -1,0 +1,94 @@
+.skills {
+	margin-top: 60px;
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.skill {
+			width: 150px;
+			height: 150px;
+			position: relative;
+			background-color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			border-radius: 50%;
+			.background {
+				position: absolute;
+				width: 158px;
+				height: 158px;
+				background-color: #ddd;
+				border-radius: 50%;
+				top: -4px;
+				left: -4px;
+				z-index: -1;
+				&::before {
+					content: "";
+					width: 154px;
+					height: 154px;
+					position: absolute;
+					top: -1px;
+					left: -3px;
+					border: 4px solid #dc3545;
+					border-color: #dc3545 #dc3545 transparent transparent;
+					border-radius: 50%;
+				}
+				&::after {
+					content: "";
+					width: 154px;
+					height: 154px;
+					position: absolute;
+					top: -1px;
+					left: -3px;
+					border: 4px solid #dc3545;
+					border-color: #dc3545 #dc3545 transparent transparent;
+					border-radius: 50%;
+				}
+			}
+			h2 {
+				font-size: 35px;
+				margin-bottom: 0px;
+			}
+			p {
+				margin-top: 5px;
+			}
+			&:first-of-type .background {
+				&::before {
+					transform: rotate(144deg);
+				}
+				&::after {
+					transform: rotate(43deg);
+				}
+			}
+			&:nth-of-type(2) .background {
+				&::before {
+					transform: rotate(74deg);
+				}
+				&::after {
+					transform: rotate(43deg);
+				}
+			}
+			&:nth-of-type(3) .background {
+				&::before {
+					transform: rotate(182deg);
+				}
+				&::after {
+					transform: rotate(43deg);
+				}
+			}
+			&:last-of-type .background {
+				&::before {
+					transform: rotate(115deg);
+				}
+				&::after {
+					transform: rotate(43deg);
+				}
+			}
+		}
+		@media (max-width: $maxSmall) {
+			flex-direction: column;
+			gap: 30px;
+		}
+	}
+}
